@@ -3,6 +3,7 @@ const ctx1 = can1.getContext('2d');
 const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
 const socket= new WebSocket('ws://68.172.39.167:80/BBws');
+socket.send('start');
 can1.width = 1216;
 can1.height = 684;
 can2.width = can1.width
