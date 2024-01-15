@@ -9,7 +9,6 @@ socket.onopen = function (event) {
     socket.send('start')             // <- this is the change
 }
 
-socket.send('start');
 can1.width = 1216;
 can1.height = 684;
 can2.width = can1.width
