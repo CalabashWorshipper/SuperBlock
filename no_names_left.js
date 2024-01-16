@@ -4,10 +4,11 @@ const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
 const socket= new WebSocket('ws://68.172.39.167:8000/BBws');
 
-//socket.onopen = function (event) {
-    //console.log('connection is open!')
-    //socket.send('start')             // <- this is the change
-//}
+socket.onopen = function (event) {
+    console.log('connection is open!');
+    alert('the connection is open');
+    socket.send('start');             // <- this is the change
+}
 
 can1.width = 1216;
 can1.height = 684;
