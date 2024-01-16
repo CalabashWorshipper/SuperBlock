@@ -2,7 +2,7 @@ const can1 = document.getElementById('c1');
 const ctx1 = can1.getContext('2d');
 const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
-const socket= new WebSocket('ws://68.172.39.167:8000/BBws');
+const socket= new WebSocket('ws://68.172.39.167:443/BBws');
 
 socket.onopen = function (event) {
     console.log('connection is open!');
