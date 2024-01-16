@@ -20,8 +20,8 @@ var not_done_before = false
 //can1.addEventListener('click',function(event){
     //let x = event.offsetX
     //let y = event.offsetY
-    console.log(x,y)
-    socket.send((x,y))
+    //console.log(x,y)
+    //socket.send((x,y))
     //ctx1.fillStyle = 'red'
     //ctx1.beginPath();
     //ctx1.arc(x,y,5,0,Math.PI*2);
@@ -32,6 +32,7 @@ var not_done_before = false
 socket.onmessage = ({data}) =>{
     if (typeof(data) != 'string'){
         new_url=URL.createObjectURL(data);
+        console.log(new_url);
         if (not_done_before){
             first_img(new_url);
             not_done_before = false
