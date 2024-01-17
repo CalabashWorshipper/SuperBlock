@@ -10,6 +10,7 @@ const LATE = document.getElementById('latests');
 const TOT = document.getElementById('total');
 const FPSSHOW = document.getElementById('fps');
 const FPSTOT = document.getElementById('fpstot');
+var prev_time = null
 var fpsss = 0
 var fps_tot = 0
 var big_tot = 0
@@ -86,6 +87,9 @@ socket.onmessage = ({data}) =>{
             //console.log(new_url);
             manual(new_url);
             timething = performance.now()
+            if (prev_time == null){
+                prev_time = timething + 200
+            }
             fps = 1/((timething-prev_time)*1000)
             fps_tot += fps
             fpsss +=1
