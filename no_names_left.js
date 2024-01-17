@@ -23,8 +23,8 @@ can1.addEventListener('click',function(event){
     let x = event.offsetX
     let y = event.offsetY
     console.log(x,y)
-    x = toString(x)
-    y = toString(y)
+    x = String(x)
+    y = String(y)
     click_data = x + ',' + y
     socket2.send(click_data)
     ctx1.fillStyle = 'red'
