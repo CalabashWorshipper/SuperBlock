@@ -19,6 +19,24 @@ can2.height = can1.height
 var old_url = null
 var not_done_before = false
 
+can1.addEventListener('contextmenu', function(event) {
+    // Prevent the default context menu from appearing
+    event.preventDefault();
+
+    // Your custom code for right-click handling goes here
+    let x = event.offsetX
+    let y = event.offsetY
+    x = x * 1.57894736842
+    y = y * 1.57894736842
+    console.log(x,y)
+    x = String(x)
+    y = String(y)
+    click_data = x + ',' + y + ',' + 'RIGHT'
+    socket2.send(click_data)
+})
+    
+});
+
 can1.addEventListener('click',function(event){
     let x = event.offsetX
     let y = event.offsetY
@@ -27,13 +45,8 @@ can1.addEventListener('click',function(event){
     console.log(x,y)
     x = String(x)
     y = String(y)
-    click_data = x + ',' + y
+    click_data = x + ',' + y + ',' + 'LEFT'
     socket2.send(click_data)
-    ctx1.fillStyle = 'red'
-    ctx1.beginPath();
-    ctx1.arc(x,y,5,0,Math.PI*2);
-    ctx1.fill();
-    ctx1.stroke();
 })
 
 socket.onmessage = ({data}) =>{
