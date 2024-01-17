@@ -32,9 +32,7 @@ can1.addEventListener('contextmenu', function(event) {
     x = String(x)
     y = String(y)
     click_data = x + ',' + y + ',' + 'RIGHT'
-    socket2.send(click_data)
-})
-    
+    socket2.send(click_data)   
 });
 
 can1.addEventListener('click',function(event){
