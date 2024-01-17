@@ -3,7 +3,8 @@ const ctx1 = can1.getContext('2d');
 const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
 const socket= new WebSocket('ws://127.0.0.1:8002/BBws');
-const socket2 = new Websocket('ws://127.0.0.1:8001/testingstuff')
+const socket2= new WebSocket('ws://127.0.0.1:8001/testingstuff');
+//'ws://127.0.0.1:8001/testingstuff'
 
 socket.onopen = function (event) {
     console.log('connection is open!');
