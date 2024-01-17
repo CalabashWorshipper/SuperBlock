@@ -8,6 +8,10 @@ const BIG = document.getElementById('large');
 const AVER = document.getElementById('average');
 const LATE = document.getElementById('latests');
 const TOT = document.getElementById('total');
+const FPSSHOW = document.getElementById('fps');
+const FPSTOT = document.getElementById('fpstot');
+var fpsss = 0
+var fps_tot = 0
 var big_tot = 0
 var fsss = 0
 var biggest = 0
@@ -75,11 +79,19 @@ socket.onmessage = ({data}) =>{
         console.log(new_url);
         if (not_done_before){
             first_img(new_url);
+            prev_time = performance.now()
             not_done_before = false
         }
         else{
             //console.log(new_url);
             manual(new_url);
+            timething = performance.now()
+            fps = 1/((timething-prev_time)*1000)
+            fps_tot += fps
+            fpsss +=1
+            FPSTOT.innerHTML = "Average FPS:" + String((Math.round((fps_tot/fpsss)*100))/100)
+            FPSSHOW.innerHTML = "FPS:" + String((Math.round(fps*100))/100)
+            prev_time = timething
         }
     }
     else{
