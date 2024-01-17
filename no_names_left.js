@@ -22,6 +22,8 @@ var not_done_before = false
 can1.addEventListener('click',function(event){
     let x = event.offsetX
     let y = event.offsetY
+    x = x * 1.57894736842
+    y = y * 1.57894736842
     console.log(x,y)
     x = String(x)
     y = String(y)
