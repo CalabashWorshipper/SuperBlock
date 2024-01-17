@@ -2,12 +2,13 @@ const can1 = document.getElementById('c1');
 const ctx1 = can1.getContext('2d');
 const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
-const socket= new WebSocket('ws://68.172.39.167:443/BBws');
+const socket= new WebSocket('ws://127.0.0.1:8002/BBws');
+const socket2 = new Websocket('ws://127.0.0.1:8001/testingstuff')
 
 socket.onopen = function (event) {
     console.log('connection is open!');
     alert('the connection is open');
-    socket.send('start');             // <- this is the change
+    socket.send(prompt());             // <- this is the change
 }
 
 can1.width = 1216;
@@ -17,17 +18,17 @@ can2.height = can1.height
 var old_url = null
 var not_done_before = false
 
-//can1.addEventListener('click',function(event){
-    //let x = event.offsetX
-    //let y = event.offsetY
-    //console.log(x,y)
-    //socket.send((x,y))
-    //ctx1.fillStyle = 'red'
-    //ctx1.beginPath();
-    //ctx1.arc(x,y,5,0,Math.PI*2);
-    //ctx1.fill();
-    //ctx1.stroke();
-//})
+can1.addEventListener('click',function(event){
+    let x = event.offsetX
+    let y = event.offsetY
+    console.log(x,y)
+    socket.send(x,y)
+    ctx1.fillStyle = 'red'
+    ctx1.beginPath();
+    ctx1.arc(x,y,5,0,Math.PI*2);
+    ctx1.fill();
+    ctx1.stroke();
+})
 
 socket.onmessage = ({data}) =>{
     if (typeof(data) != 'string'){
