@@ -116,9 +116,9 @@ function manual(img1s,img2s){
     
         console.log(scanned,scanned2)
         for (let i = 0; i<data.length; i+=4){
-            if (data[i] < 35){
-                if (data[i+1] < 35){
-                    if (data[i+2] < 35){
+            if (data[i] < 20){
+                if (data[i+1] < 20){
+                    if (data[i+2] < 20){
                         data[i] = data2[i]
                         data[i+1] = data2[i+1]
                         data[i+2] = data2[i+2]
