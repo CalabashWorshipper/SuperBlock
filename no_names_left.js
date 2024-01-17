@@ -61,7 +61,7 @@ socket.onmessage = ({data}) =>{
         file_size = file_size/1000
         LATE.innerHTML = 'Most Recent File Size:' + String(file_size) + 'kB'
         big_tot += file_size
-        TOT.innerHTML = 'Total Data Received:' String(big_tot/1000) + 'MB'
+        TOT.innerHTML = 'Total Data Received:' + String(big_tot/1000) + 'MB'
         if (file_size >= biggest){
             biggest = file_size
             BIG.innerHTML = "Largest File Size:" + String(biggest) + "kB"
