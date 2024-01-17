@@ -90,7 +90,7 @@ socket.onmessage = ({data}) =>{
             if (prev_time == null){
                 prev_time = timething + 200
             }
-            fps = 1/((timething-prev_time)*1000)
+            fps = 1/((timething-prev_time)*1)
             fps_tot += fps
             fpsss +=1
             FPSTOT.innerHTML = "Average FPS:" + String((Math.round((fps_tot/fpsss)*100))/100)
