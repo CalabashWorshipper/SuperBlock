@@ -4,6 +4,11 @@ const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
 const socket= new WebSocket('ws://127.0.0.1:8002/BBws');
 const socket2= new WebSocket('ws://127.0.0.1:8001/testingstuff');
+const BIG = document.getElementById('large');
+const AVER = document.getElementById('average');
+var big_tot = 0
+var fsss = 0
+var biggest = 0
 //'ws://127.0.0.1:8001/testingstuff'
 
 socket.onopen = function (event) {
@@ -49,7 +54,19 @@ can1.addEventListener('click',function(event){
 
 socket.onmessage = ({data}) =>{
     if (typeof(data) != 'string'){
-        console.log(data.size);
+        fsss +=1
+        file_size = data.size
+        file_size = file_size/1000
+        big_tot += file_size
+        if (file_size >= biggest){
+            biggest = file_size
+            BIG.innerHTML = "Largest File Size:" + String(biggest) + "kB"
+            
+        }
+        AVER.innerHTML = "Average File Size:" + String(big_tot/fsss) + "kB"
+
+        
+        
         new_url=URL.createObjectURL(data);
         console.log(new_url);
         if (not_done_before){
