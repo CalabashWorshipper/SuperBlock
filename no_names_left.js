@@ -7,6 +7,7 @@ const socket2= new WebSocket('ws://127.0.0.1:8001/testingstuff');
 const BIG = document.getElementById('large');
 const AVER = document.getElementById('average');
 const LATE = document.getElementById('latests');
+const TOT = document.getElementById('total');
 var big_tot = 0
 var fsss = 0
 var biggest = 0
@@ -60,6 +61,7 @@ socket.onmessage = ({data}) =>{
         file_size = file_size/1000
         LATE.innerHTML = 'Most Recent File Size:' + String(file_size) + 'kB'
         big_tot += file_size
+        TOT.innerHTML = 'Total Data Received:' String(big_tot/1000) + 'MB'
         if (file_size >= biggest){
             biggest = file_size
             BIG.innerHTML = "Largest File Size:" + String(biggest) + "kB"
