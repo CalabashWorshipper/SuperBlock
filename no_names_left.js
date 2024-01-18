@@ -33,8 +33,8 @@ var not_done_before = false
 
 document.onkeypress = function (e) {
     e = e || window.event;
-    // use e.keyCode
-    console.log('key:',e.keyCode);
+    // use e.key
+    console.log('key:',e.key);
 };
 
 can1.addEventListener('contextmenu', function(event) {
