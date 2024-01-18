@@ -2,8 +2,8 @@ const can1 = document.getElementById('c1');
 const ctx1 = can1.getContext('2d');
 const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
-const socket= new WebSocket('ws://68.172.39.167:1334/BBws');
-const socket2= new WebSocket('ws://68.172.39.167:1335/testingstuff');
+const socket= new WebSocket('ws://127.0.0.1:8001/BBws');
+const socket2= new WebSocket('ws://127.0.0.1:8002/testingstuff');
 const BIG = document.getElementById('large');
 const AVER = document.getElementById('average');
 const LATE = document.getElementById('latests');
@@ -34,7 +34,15 @@ var not_done_before = false
 document.addEventListener('keydown', function (e) {
     e = e || window.event;
     console.log(e.key)
+    socket2.send("DOWN:" + e.key)
 });
+
+document.addEventListener('keyup', function (e) {
+    e = e || window.event;
+    console.log(e.key)
+    socket2.send("UP:" + e.key)
+});
+
 
 can1.addEventListener('contextmenu', function(event) {
     // Prevent the default context menu from appearing
