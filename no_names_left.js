@@ -39,10 +39,10 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-document.addEventListener('keyup', function (e) {
-    e = e || window.event;
-    console.log(e.key)
-    socket2.send("UP:" + e.key)
+document.addEventListener('keyup', function (f) {
+    f = f || window.event;
+    console.log(f.key)
+    socket2.send("UP:" + f.key)
 });
 
 
