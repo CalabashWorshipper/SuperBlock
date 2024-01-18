@@ -33,8 +33,10 @@ var not_done_before = false
 
 document.addEventListener('keydown', function (e) {
     e = e || window.event;
-    console.log(e.key)
-    socket2.send("DOWN:" + e.key)
+    if (!e.repeat) {
+        console.log(e.key)
+        socket2.send("DOWN:" + e.key)
+    }
 });
 
 document.addEventListener('keyup', function (e) {
