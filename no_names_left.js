@@ -31,6 +31,12 @@ can2.height = can1.height
 var old_url = null
 var not_done_before = false
 
+document.onkeypress = function (e) {
+    e = e || window.event;
+    // use e.keyCode
+    console.log('key:',e.keyCode);
+};
+
 can1.addEventListener('contextmenu', function(event) {
     // Prevent the default context menu from appearing
     event.preventDefault();
@@ -77,7 +83,7 @@ socket.onmessage = ({data}) =>{
         
         
         new_url=URL.createObjectURL(data);
-        console.log(new_url);
+        //console.log(new_url);
         if (not_done_before){
             first_img(new_url);
             prev_time = performance.now()
@@ -114,7 +120,7 @@ function manual(img1s,img2s){
         var scanned2 = ctx2.getImageData(0,0,1216,684)
         var data2 = scanned2.data
     
-        console.log(scanned,scanned2)
+        //console.log(scanned,scanned2)
         for (let i = 0; i<data.length; i+=4){
             if (data[i] < 20){
                 if (data[i+1] < 20){
