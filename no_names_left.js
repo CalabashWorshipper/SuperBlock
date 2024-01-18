@@ -34,7 +34,6 @@ var not_done_before = false
 document.addEventListener('keydown', function (e) {
     e = e || window.event;
     console.log(e.key)
-    }
 });
 
 can1.addEventListener('contextmenu', function(event) {
