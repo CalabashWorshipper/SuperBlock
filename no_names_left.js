@@ -31,11 +31,11 @@ can2.height = can1.height
 var old_url = null
 var not_done_before = false
 
-document.onkeypress = function (e) {
+document.addEventListener('keydown', function (e) {
     e = e || window.event;
-    // use e.key
-    console.log('key:',e.key);
-};
+    console.log(e.key)
+    }
+});
 
 can1.addEventListener('contextmenu', function(event) {
     // Prevent the default context menu from appearing
