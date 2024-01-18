@@ -56,7 +56,7 @@ can1.addEventListener('contextmenu', function(event) {
     console.log(x,y)
     x = String(x)
     y = String(y)
-    click_data = x + ',' + y + ',' + 'RIGHT'
+    click_data = "click," + x + ',' + y + ',' + 'RIGHT'
     socket2.send(click_data)   
 });
 
@@ -68,7 +68,7 @@ can1.addEventListener('click',function(event){
     console.log(x,y)
     x = String(x)
     y = String(y)
-    click_data = x + ',' + y + ',' + 'LEFT'
+    click_data = "click," + x + ',' + y + ',' + 'LEFT'
     socket2.send(click_data)
 })
 
