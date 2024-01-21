@@ -21,6 +21,7 @@ var biggest = 0
 socket.onopen = function (event) {
     console.log('connection is open!');
     alert('the connection is open');
+    var INpass = prompt();
     socket.send(prompt());             // <- this is the change
 }
 
@@ -35,14 +36,14 @@ document.addEventListener('keydown', function (e) {
     e = e || window.event;
     if (!e.repeat) {
         console.log(e.key)
-        socket2.send("DOWN:" + e.key)
+        socket2.send(INpass + ":" + "DOWN:" + e.key)
     }
 });
 
 document.addEventListener('keyup', function (f) {
     f = f || window.event;
     console.log(f.key)
-    socket2.send("UP:" + f.key)
+    socket2.send(INpass + ":" + "UP:" + f.key)
 });
 
 
@@ -58,7 +59,7 @@ can1.addEventListener('contextmenu', function(event) {
     console.log(x,y)
     x = String(x)
     y = String(y)
-    click_data = "click," + x + ',' + y + ',' + 'RIGHT'
+    click_data = INpass + ":" + "click:" + x + ',' + y + ',' + 'RIGHT'
     socket2.send(click_data)   
 });
 
@@ -70,7 +71,7 @@ can1.addEventListener('click',function(event){
     console.log(x,y)
     x = String(x)
     y = String(y)
-    click_data = "click," + x + ',' + y + ',' + 'LEFT'
+    click_data = INpass + ":" + "click:" + x + ',' + y + ',' + 'LEFT'
     socket2.send(click_data)
 })
 
