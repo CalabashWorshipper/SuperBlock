@@ -92,7 +92,7 @@ socket.onmessage = ({data}) =>{
         
         
         new_url=URL.createObjectURL(data);
-        //console.log(new_url);
+        console.log(new_url);
         if (not_done_before){
             first_img(new_url);
             prev_time = performance.now()
@@ -111,6 +111,7 @@ socket.onmessage = ({data}) =>{
             FPSTOT.innerHTML = "Average FPS:" + String((Math.round((fps_tot/fpsss)*100))/100)
             FPSSHOW.innerHTML = "FPS:" + String((Math.round(fps*100))/100)
             prev_time = timething
+            URL.revokeObjectURL(new_url);
         }
     }
     else{
