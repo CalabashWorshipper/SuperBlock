@@ -17,11 +17,11 @@ var big_tot = 0
 var fsss = 0
 var biggest = 0
 //'ws://127.0.0.1:8001/testingstuff'
+var INpass = prompt();
 
 socket.onopen = function (event) {
     console.log('connection is open!');
     alert('the connection is open');
-    var INpass = prompt();
     socket.send(prompt());             // <- this is the change
 }
 
