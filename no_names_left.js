@@ -94,7 +94,7 @@ socket.onmessage = ({data}) =>{
         
         
         new_url=URL.createObjectURL(data);
-        console.log(new_url);
+        //console.log(new_url);
         if (not_done_before){
             first_img(new_url);
             prev_time = performance.now()
