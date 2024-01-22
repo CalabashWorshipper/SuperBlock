@@ -103,8 +103,8 @@ socket.onmessage = ({data}) =>{
         else{
             //console.log(new_url);
             manual(new_url).then(
-                URL.revokeObjectURL(new_url);
-            )
+                URL.revokeObjectURL(new_url)
+            );
             timething = performance.now()
             if (prev_time == null){
                 prev_time = timething + 200
