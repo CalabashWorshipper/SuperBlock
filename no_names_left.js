@@ -2,8 +2,8 @@ const can1 = document.getElementById('c1');
 const ctx1 = can1.getContext('2d');
 const can2 = document.getElementById('c2');
 const ctx2 = can2.getContext('2d');
-const socket= new WebSocket('ws://68.172.47.98:1334/BBws');
 const socket2= new WebSocket('ws://68.172.47.98:1335/testingstuff');
+const socket= new WebSocket('ws://68.172.47.98:1334/BBws');
 const BIG = document.getElementById('large');
 const AVER = document.getElementById('average');
 const LATE = document.getElementById('latests');
@@ -102,7 +102,9 @@ socket.onmessage = ({data}) =>{
         }
         else{
             //console.log(new_url);
-            manual(new_url);
+            manual(new_url).then(
+                URL.revokeObjectURL(new_url);
+            )
             timething = performance.now()
             if (prev_time == null){
                 prev_time = timething + 200
@@ -113,7 +115,6 @@ socket.onmessage = ({data}) =>{
             FPSTOT.innerHTML = "Average FPS:" + String((Math.round((fps_tot/fpsss)*100))/100)
             FPSSHOW.innerHTML = "FPS:" + String((Math.round(fps*100))/100)
             prev_time = timething
-            URL.revokeObjectURL(new_url);
         }
     }
     else{
